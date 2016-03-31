@@ -6,7 +6,6 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
-import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
@@ -74,14 +73,12 @@ public class IndexRecyclerView extends FrameLayout {
                 }
             }
         });
-
-        recyclerView.addOnItemTouchListener (new RecyclerItemClickListener (context, new RecyclerItemClickListener.OnItemClickListener () {
-            @Override
-            public void onItemClick (View view, int position) {
-                mAdapter.remove (mAdapter.getItem (position));
-            }
-        }));
     }
 
+
+    //给recyclerview设置监听器
+    public void setOnItemClickListener(Context context, RecyclerItemClickListener.OnItemClickListener listener ){
+        recyclerView.addOnItemTouchListener (new RecyclerItemClickListener (context,listener));
+    }
 
 }

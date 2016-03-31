@@ -22,6 +22,7 @@ public abstract class BaseAdapter<VH extends RecyclerView.ViewHolder> extends Re
         setHasStableIds (true);
     }
 
+    //对集合进行排序
     public void sortList(){
         for(int i = 0;i<itemsData.size ();i++){
             String selling = characterParser.getSelling (itemsData.get (i).getName ());
@@ -61,6 +62,14 @@ public abstract class BaseAdapter<VH extends RecyclerView.ViewHolder> extends Re
         itemsData.add (index,data);
         sortList();
         notifyDataSetChanged ();
+    }
+
+    public void setItemsData(ArrayList<ModelData> objs){
+        if(objs!=null){
+            itemsData = objs;
+            sortList();
+            notifyDataSetChanged ();
+        }
     }
 
     public void addAll(Collection<? extends ModelData> objs){

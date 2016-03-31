@@ -5,3 +5,4 @@
 3.Adapter继承RecyclerViewAdapter
 4.使用adapter.add()添加数据
 5.然后调用IndexRecyclerView.setAdapter(adapter)来使用
+6.集合中的对象必须继承ModelData
